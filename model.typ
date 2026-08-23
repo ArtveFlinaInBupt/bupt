@@ -155,6 +155,11 @@
       title: title-text,
       page-logic: counter(page).get().first(),
       page-physical: here().page(),
+      length-in-page: query(heading.where(level: 1).or(<attention-page>).after(here()))
+        .first()
+        .location()
+        .page()
+        - here().page(),
     )) <problemset>]
   }
 

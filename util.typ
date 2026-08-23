@@ -22,7 +22,10 @@
   page(
     header: none,
     numbering: none,
-    align(center + horizon, body),
+    align(center + horizon, {
+      [#metadata(none) <attention-page>]
+      body
+    }),
   )
 }
 
