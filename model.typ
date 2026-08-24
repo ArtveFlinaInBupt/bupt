@@ -155,11 +155,14 @@
       title: title-text,
       page-logic: counter(page).get().first(),
       page-physical: here().page(),
-      length-in-page: query(heading.where(level: 1).or(<attention-page>).after(here()))
-        .first()
-        .location()
-        .page()
-        - here().page(),
+      length-in-page: {
+        let next-problemset = query(heading.where(level: 1).or(<attention-page>).after(here()))
+        if next-problemset.len() == 0 {
+          return
+        }
+
+        next-problemset.first().location().page() - here().page()
+      },
     )) <problemset>]
   }
 
