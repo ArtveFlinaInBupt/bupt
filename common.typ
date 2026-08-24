@@ -406,10 +406,7 @@
   body
 }
 
-#let show-appendix(config, body) = {
-  show: styled-universal.with(config)
-  show: indented-par.with(config)
-
+#let show-appendix-start(config, body) = {
   counter(heading).update(0)
   show heading.where(level: 1): set heading(numbering: (..nums) => {
     numbering("附录 A", ..nums)
@@ -417,6 +414,13 @@
   })
   set page(numbering: "1·附录") // codepoint · enables fwid feature
   page-both.update(false)
+
+  body
+}
+
+#let show-appendix-file(config, body) = {
+  show: styled-universal.with(config)
+  show: indented-par.with(config)
 
   body
 }
