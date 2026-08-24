@@ -421,6 +421,7 @@
 #let show-appendix-file(config, body) = {
   show: styled-universal.with(config)
   show: indented-par.with(config)
+  show: styled-hyper.with(config)
 
   body
 }
