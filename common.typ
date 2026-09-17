@@ -75,6 +75,7 @@
         tnum(counter(page).display(page.numbering, both: page-both.get()))
       },
     ),
+    ..config.set-args.page,
   )
 
   body
