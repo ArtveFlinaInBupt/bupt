@@ -74,7 +74,10 @@
         refn(numbering-str, it)
         if numbering-str.ends-with("、") { h(-.5em) }
       },
-      ..args.pos(),
+      ..{
+        args.pos()
+        if args.pos().len() == 0 { (none,) }
+      },
     )
     problem-level.update(level => level - 1)
   }
